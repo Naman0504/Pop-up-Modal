@@ -21,6 +21,7 @@ body {
 }
 
 button {
+    cursor: pointer;
   background-image: linear-gradient(
     to right,
     #003973 0%,
@@ -68,11 +69,11 @@ button:hover {
   border: 1px solid rgba(255, 255, 255, 0.3);
   position: relative;
   padding-top: 80px;
-  /* scale: 0; */
-  /* transform: scale(0); */
-  display: none;
   
-transform: translateX(-110%);
+   transform: scale(0);
+  opacity: 0;
+  display: none;
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
 .close {
@@ -90,6 +91,7 @@ transform: translateX(-110%);
   color: white;
   font-size: 12px;
   font-weight: 800;
+  cursor: pointer;
 }
 
 .box {
@@ -138,8 +140,22 @@ input {
 }
 
 
-.open{
-    display: block;
-/* scale: 1; */
-/* transform: translateX(0); */
+.pop-modal.open {
+  display: block;
+  animation: pop 0.4s ease forwards;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
